@@ -1,0 +1,29 @@
+@mixin button {
+    outline: none;
+    margin: 10px 0;
+    background-color: $color-controls;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+button,
+a[role=button] {
+    @include button;
+
+    &.danger {
+        background-color: $color-danger;
+    }
+}

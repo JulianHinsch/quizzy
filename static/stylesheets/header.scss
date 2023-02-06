@@ -1,0 +1,125 @@
+@import './global.scss';
+
+header {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 60px;
+    transition: height 0.2s;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+    @media(min-width: 768px) {
+        height: 80px;
+    }
+
+    &.-auth {
+        justify-content: center;
+    }
+}
+
+header nav {
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    background-color: white;
+    top: 60px;
+    display: none;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+    &.open {
+        display: block;
+    }
+
+    @media(min-width: 768px) {
+        display: block;
+        top: 0px;
+    }
+}
+
+header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 5%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header li {
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    margin-left: 1em;
+    transition: height 0.3s, line-height 0.3s;
+
+    @media(min-width: 768px) {
+        height: 80px;
+        line-height: 80px;
+    }
+}
+
+.logo {
+    margin-left: 5%;
+
+    & img {
+        width: 25px;
+        margin-right: -2px;
+        vertical-align: baseline;
+    }
+
+    & h1 {
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        font-weight: normal;
+        color: black;
+    }
+}
+
+#hamburger {
+    position: absolute;
+    cursor: pointer;
+    width: 25px;
+    height: 20px;
+    top: 20px;
+    right: 5%;
+
+    & div {
+        width: 25px;
+        height: 2px;
+        position: absolute;
+        background-color: black;
+
+        &:first-child {
+            top: 0px;
+        }
+
+        top: 9px;
+
+        &:last-child {
+            top: 18px;
+        }
+    }
+
+    @media(min-width: 768px) {
+        display: none;
+    }
+
+    &.active {
+        & div {
+            top: 9px;
+            transform: rotate(45deg);
+
+            &:first-child {
+                transform: rotate(-45deg);
+            }
+
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+}

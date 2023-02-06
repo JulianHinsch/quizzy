@@ -1,0 +1,27 @@
+$color-background: #f8f9fa;
+$color-controls: #00468B;
+$color-danger: #8B0000;
+$color-border: #bbb;
+
+body {
+    background-color: white;
+}
+
+.main {
+    background-color: $color-background;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 60px;
+
+    @media(min-width: 768px) {
+        padding-top: 80px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    color: inherit;
+}

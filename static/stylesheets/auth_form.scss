@@ -1,0 +1,23 @@
+.auth-form {
+    & a {
+        color: $color-controls;
+    }
+
+    & .errorlist {
+        order: -1;
+        padding: 10px;
+        border: 1px solid red;
+        background-color: pink;
+        border-radius: 5px;
+        list-style-type: none;
+        margin-top: 0;
+    }
+
+    & .helptext {
+        display: none;
+    }
+
+    & br {
+        display: none;
+    }
+}
