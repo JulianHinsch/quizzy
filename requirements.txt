@@ -1,0 +1,15 @@
+asgiref==3.6.0
+dj-database-url==1.2.0
+Django==4.1.6
+django-appconf==1.0.5
+django-compressor==4.1
+django-libsass==0.9
+django-sass==1.1.0
+django-sass-processor==1.2.2
+gunicorn==20.1.0
+libsass==0.22.0
+psycopg2==2.9.5
+rcssmin==1.1.0
+rjsmin==1.2.0
+sqlparse==0.4.3
+whitenoise==6.3.0
