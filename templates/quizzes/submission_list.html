@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{ quiz.title }} | Submissions {% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h2>{{ quiz.title }} | Submissions</h2>
+        <h3>{{ submissions|length }} submission{% if submissions|length != 1 %}s{% endif %}</h3>
+        <ul class="numbered-list">
+            {% for submission in submissions %}
+                <a href="{% url 'submission_detail' quiz.id submission.id %}">
+                    <li>
+                        {% if submission.user %}
+                            {{ submission.user.first_name }}
+                            {{ submission.user.last_name }}
+                        {% else %}
+                            Anonymous User
+                        {% endif %}
+                        on
+                        {{ submission.date_created }}
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+        <a role="button" href="{% url 'dashboard' %}">Back to Dashboard</a>
+        <form method="DELETE">
+            {% csrf_token %}
+            <button type="submit" class="danger">Delete Quiz</button>                        
+        </form>
+    </div>
+{% endblock %}

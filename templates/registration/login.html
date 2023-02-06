@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} | Login {% endblock %}
+
+{% block header %}
+    {% include '../partials/header_auth.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h2>Log In</h2>
+        <form class='auth-form' method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Log In</button>
+            <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up &#9656;</a></p>
+            <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+        </form>
+    </div>
+{% endblock %}

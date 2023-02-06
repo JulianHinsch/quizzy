@@ -1,0 +1,25 @@
+{% load static %}
+
+<header>
+    <a href='/' class="logo">
+        <img src="{% static 'images/logo.svg' %}" alt="logo">
+        <h1>Quizzy</h1>
+    </a>
+    <nav>
+        <ul role="navigation">
+            {% if user.is_authenticated %}
+                <li>Welcome, {{ user.first_name }}!</li>
+                <li><a role='button' href="{% url 'dashboard' %}">Dashboard</a></li>                            
+                <li><a role='button' href="{% url 'logout' %}">Logout</a></li>            
+            {% else %}
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li><a role='button' href="{% url 'signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div id="hamburger" role="button">
+        <div></div>
+        <div></div>
+        <div></div>            
+    </div>
+</header>

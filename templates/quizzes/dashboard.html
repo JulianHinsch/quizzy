@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} | Dashboard {% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h2>Dashboard</h2>
+        <h3>My Quizzes</h3>
+        {% if quizzes|length > 0 %}
+            <ul class="numbered-list">
+                {% for quiz in quizzes %}
+                    <a href="{% url 'submissions' quiz.id %}">
+                        <li>
+                            {{quiz.title}}
+                        </li>
+                    </a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't created any quizzes yet!</p>
+        {% endif %}
+        <a role="button" href="{% url 'new_quiz' %}">Create a Quiz</a>
+        <h3>Danger Zone</h3>
+        <button class="danger">Delete Account</button>
+    </div>
+{% endblock %}

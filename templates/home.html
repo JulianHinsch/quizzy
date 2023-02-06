@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} | Home {% endblock %}
+
+{% block content %}
+    <div class="card home">
+        <h1>Welcome to Quizzy!</h1>
+        <p>Create your own quizzes and share them with your friends.</p>
+        <a role="button" href="{% url 'new_quiz' %}">Create a Quiz</a>
+        <a role="button" href="{% url 'quiz_list' %}">See Them All</a>        
+    </div>
+{% endblock %}

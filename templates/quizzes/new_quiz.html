@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | New Quiz {% endblock %}
+
+{% block script %}
+    <script src="{% static '/javascript/new_quiz.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h2>New Quiz</h2>
+        <form class='quiz-form' method="POST">
+            {% csrf_token %}
+            {{ quiz_form }}
+            <h3>Questions</h3>
+            <ol id="question-list">
+                {% for question_form in question_forms %}
+                    <li>
+                        <label for="{{ question_form.desc.id_for_label }}">
+                            {{ idx }}
+                        </label>
+                        {{ question_form.desc }}
+                    </li>
+                {% endfor %}
+            </ol>
+            <button type="button" id="add-question">Add a Question</button>
+            <button type="submit">Submit</button>              
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+{% endblock %}

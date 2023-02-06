@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{ quiz.title }} {% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h2>{{ quiz.title }}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ submission_form }}
+            <ol>
+                {% for answer_form in answer_forms %}
+                    <li>
+                        <label for="{{ answer_form.desc.id_for_label }}">
+                            {{ idx }}
+                        </label>
+                        {{ answer_form.question.desc }}
+                        {{ answer_form }}
+                    </li>
+                {% endfor %}
+            </ol>
+            <button type="submit">Submit</button>              
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+{% endblock %}

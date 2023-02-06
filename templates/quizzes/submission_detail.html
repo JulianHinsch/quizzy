@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{ quiz.title }} | Submission by {{user}} on {{date}} {% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h2>{{ quiz.title }}</h2>
+        <h3>Submission by 
+            {% if submission.user %}
+                {{ submission.user.first_name }}
+                {{ submission.user.last_name }}
+            {% else %}
+                Anonymous User
+            {% endif %}
+            on {{ submission.date_created }}</h3>
+        <ul class="numbered-list">
+            {% for answer in answers %}
+                <li>
+                    <h4>{{ answer.question.desc }}</h4>
+                    <p>{{ answer.body }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <a role="button" href="{% url 'submissions' quiz.id %}">Back to Submissions</a>
+    </div>
+{% endblock %}
