@@ -5,7 +5,6 @@
 {% block content %}
     <div class="card">
         <h2>All Quizzes</h2>
-        <a role="button" href="{% url 'new_quiz' %}">Create a Quiz</a>
         <ul class="numbered-list">
             {% for quiz in quizzes %}
                 <a href="{% url 'quiz_detail' quiz.id %}">
@@ -13,7 +12,10 @@
                         {{quiz.title}}
                     </li>
                 </a>
+            {% empty %}
+                <p>No quizzes yet!</p>
             {% endfor %}
         </ul>
+        <a role="button" href="{% url 'new_quiz' %}">Create a Quiz</a>
     </div>
 {% endblock %}
