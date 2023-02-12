@@ -23,4 +23,12 @@ form {
     & button[type=submit] {
         margin-top: 10px;
     }
+
+    > ol {
+        padding-left: 1em;
+
+        & input {
+            margin-left: -1em;
+        }
+    }
 }

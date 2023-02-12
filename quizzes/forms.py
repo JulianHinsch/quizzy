@@ -20,3 +20,6 @@ class AnswerForm(ModelForm):
     class Meta:
         model = Answer
         fields = ["body"]
+        labels = {
+            'body': ''
+        }

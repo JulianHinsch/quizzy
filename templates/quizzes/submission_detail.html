@@ -13,14 +13,14 @@
                 Anonymous User
             {% endif %}
             on {{ submission.date_created }}</h3>
-        <ul class="numbered-list">
+        <ol>
             {% for answer in answers %}
                 <li>
-                    <h4>{{ answer.question.desc }}</h4>
-                    <p>{{ answer.body }}</p>
+                    <label>{{ answer.question.desc }}</label>
+                    <p><b>{{ answer.body }}</b></p>
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
         <a role="button" href="{% url 'submissions' quiz.id %}">Back to Submissions</a>
     </div>
 {% endblock %}

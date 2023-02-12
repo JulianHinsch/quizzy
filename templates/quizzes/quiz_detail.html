@@ -9,18 +9,17 @@
             {% csrf_token %}
             {{ submission_form }}
             <ol>
-                {% for answer_form in answer_forms %}
+                {% for answer_form, question in answer_forms_questions %}
                     <li>
                         <label for="{{ answer_form.desc.id_for_label }}">
                             {{ idx }}
                         </label>
-                        {{ answer_form.question.desc }}
+                        {{ question }}
                         {{ answer_form }}
                     </li>
                 {% endfor %}
             </ol>
             <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
         </form>
     </div>
 {% endblock %}

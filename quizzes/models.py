@@ -23,7 +23,7 @@ class Submission(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
     def __str__(self):
-        return self.date_created
+        return self.user.username + ' on ' + str(self.date_created)
 
 class Answer(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete = models.CASCADE)
