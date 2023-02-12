@@ -7,16 +7,6 @@ from django.views import generic
 
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 
-# class LogIn(generic.CreateView):
-#     form_class = CustomAuthenticationForm
-#     success_url = reverse_lazy('home')
-#     template_name = 'login.html'
-
-# class SignUp(generic.CreateView):
-#     form_class = CustomUserCreationForm
-#     success_url = reverse_lazy('home')
-#     template_name = 'signup.html'
-
 from django.contrib.auth import authenticate, login
 
 def signup(request):
@@ -28,7 +18,7 @@ def signup(request):
             p = form.cleaned_data['password1']
             new_user = authenticate(username = u, password = p)
             login(request, new_user)
-            return HttpResponseRedirect("/dashboard/")
+            return HttpResponseRedirect("/account/")
         else:
             # TODO more specific logic here
             return HttpResponseBadRequest('Something went wrong!')

@@ -17,7 +17,7 @@ https://wsvincent.com
 - Home
     - Login (Form)
         - New Quiz
-        - Dashboard/My Quizzes
+        - Account/My Quizzes
             - Submissions
                 - Submission Detail
     - Forgot Password (Form)

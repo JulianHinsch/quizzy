@@ -22,7 +22,7 @@
                 </a>
             {% endfor %}
         </ul>
-        <a role="button" href="{% url 'dashboard' %}">Back to Dashboard</a>
+        <a role="button" href="{% url 'account' %}">Back to My Account</a>
         <form method="DELETE">
             {% csrf_token %}
             <button type="submit" class="danger">Delete Quiz</button>                        
